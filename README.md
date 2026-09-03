@@ -28,7 +28,7 @@ Abre una terminal de PowerShell y sigue estos pasos:
 3. Crea el ambiente virtual:
 
    ```powershell
-   python -m venv .venv
+   py -m venv .venv
    ```
 
 4. Activa el ambiente virtual:
