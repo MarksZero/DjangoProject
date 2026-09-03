@@ -10,5 +10,21 @@
 
     <p>{{ descripcion }}</p>
 
+    <h2>Funcionalidades principales</h2>
+
+    <ul>
+        {% for funcionalidad in funcionalidades %}
+            <li>{{ funcionalidad }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>
+        Cantidad de funcionalidades: {{ cantidad_funcionalidades }}
+    </p>
+
+    <p>
+        Estado: {{ estado }}
+    </p>
+
 </body>
 </html>

@@ -10,8 +10,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 if not SECRET_KEY:
     raise RuntimeError("La variable DJANGO_SECRET_KEY no está configurada")
+
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 

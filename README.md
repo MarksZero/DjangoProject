@@ -42,6 +42,20 @@ Abre una terminal de PowerShell y sigue estos pasos:
    ```powershell
    pip install -r requirements.txt
    ```
+   
+## Variable de entorno requerida
+
+Antes de ejecutar el proyecto debe configurarse `DJANGO_SECRET_KEY`.
+
+En PowerShell para generar una nueva clave:
+```
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+Luego con la nueva clave generada en la terminal:
+```powershell
+$env:DJANGO_SECRET_KEY = "la_nueva_clave"
+```
 
 ## Ejecución
 
