@@ -66,14 +66,15 @@ En una instalación nueva, ejecutar:
 
 ```bash
 python manage.py migrate
-
+```
 ## Ejecución
 
 Desde la carpeta que contiene `manage.py`, con el ambiente virtual activo, ejecuta:
 
-```powershell
+```Powershell
 python manage.py runserver
 ```
+
 
 Abre [http://127.0.0.1:8000/](http://127.0.0.1:8000/) en el navegador.
 
