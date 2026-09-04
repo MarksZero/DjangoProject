@@ -56,6 +56,16 @@ Luego con la nueva clave generada en la terminal:
 ```powershell
 $env:DJANGO_SECRET_KEY = "la_nueva_clave"
 ```
+```Linux
+set -x DJANGO_SECRET_KEY 'tu_clave'
+```
+
+### Aplicar migraciones iniciales de Django
+
+En una instalación nueva, ejecutar:
+
+```bash
+python manage.py migrate
 
 ## Ejecución
 
