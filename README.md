@@ -97,9 +97,9 @@ El proyecto incluye los scripts SQL solicitados para crear la base de datos, el 
 Con MySQL 8.4 instalado y activo, ejecutar una sola vez desde la raíz del proyecto:
 
 ```text
-mysql -u root -p -e "source sql/01_crear_base.sql"
-mysql -u root -p -e "source sql/02_crear_usuario.sql"
-mysql -u root -p -e "source sql/03_permisos.sql"
+mysql -u root -p -e "source 01_crear_base.sql"
+mysql -u root -p -e "source 02_crear_usuario.sql"
+mysql -u root -p -e "source 03_permisos.sql"
 ```
 
 El segundo script devuelve la contraseña del usuario creado. Para utilizar MySQL, reemplazar `DB_ENGINE=sqlite` en `.env` y añadir los datos de conexión:
