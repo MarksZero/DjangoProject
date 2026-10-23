@@ -1,5 +1,7 @@
 from django.shortcuts import render
-
+from rest_framework.viewsets import ModelViewSet
+from .models import Actividad, Proyecto, Tarea
+from .serializers import ActividadSerializer, ProyectoSerializer, TareaSerializer
 
 def inicio(request):
     nombre_proyecto = "Sistema de Control de Tareas"
@@ -30,3 +32,18 @@ def inicio(request):
 
 def error_404(request, exception):
     return render(request, "404.html", status=404)
+
+
+class ProyectoViewSet(ModelViewSet):
+    queryset = Proyecto.objects.all()
+    serializer_class = ProyectoSerializer
+
+
+class TareaViewSet(ModelViewSet):
+    queryset = Tarea.objects.select_related('proyecto').all()
+    serializer_class = TareaSerializer
+
+
+class ActividadViewSet(ModelViewSet):
+    queryset = Actividad.objects.select_related('tarea').all()
+    serializer_class = ActividadSerializer
