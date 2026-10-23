@@ -2,11 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Error 404</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Error 404 · Control de tareas</title>
+    <style>{% include "sistema_control.css" %}</style>
 </head>
 <body>
-    <h1>Error 404</h1>
-    <p>La página solicitada no existe.</p>
-    <a href="/">Volver al inicio</a>
+    <header class="topbar"><div class="shell"><a class="brand" href="{% url 'inicio' %}">Control de tareas</a></div></header>
+    <main class="shell">
+        <div class="error">
+            <p class="eyebrow">Error 404</p>
+            <h1>No encontramos esta página.</h1>
+            <p class="intro">La página solicitada no existe. Revisa la dirección o vuelve al inicio para continuar.</p>
+            <div class="actions"><a class="button" href="{% url 'inicio' %}">Volver al inicio</a></div>
+        </div>
+    </main>
 </body>
 </html>
