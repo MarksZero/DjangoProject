@@ -35,22 +35,20 @@ Crear `.venv` en cada equipo; no copiarlo entre Windows y Linux.
 
 ## Configuración
 
-Crear `.env` junto a `manage.py`; si ya existe, conservarlo. Generar una clave:
+El proyecto utiliza un archivo `.env` junto a `manage.py` para desacoplar la configuración sensible de `settings.py`.
 
-```text
-python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
-```
-
-Guardar lo siguiente en `.env`, reemplazando el valor de la clave por el resultado:
+La estructura de configuración utilizada es:
 
 ```dotenv
-DJANGO_SECRET_KEY='PEGAR_LA_CLAVE_GENERADA'
+DJANGO_SECRET_KEY='CLAVE_DEL_PROYECTO'
 DJANGO_DEBUG=false
 DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
 DB_ENGINE=sqlite
 ```
 
-No subir `.env`, `.venv` ni `db.sqlite3` a Git.
+Para esta evaluación, el archivo `.env` forma parte de la entrega y se encuentra incluido en el repositorio según las instrucciones proporcionadas.
+
+No subir `.venv` ni `db.sqlite3` a Git.
 
 ## Levantar la web
 
@@ -92,7 +90,9 @@ python manage.py runserver 127.0.0.1:8000 --insecure
 
 No es necesario recrear el entorno ni el usuario. Ejecutar `migrate` cuando haya migraciones nuevas.
 
-## MySQL opcional
+## Configuración MySQL
+
+El proyecto incluye los scripts SQL solicitados para crear la base de datos, el usuario de aplicación y sus permisos.
 
 Con MySQL 8.4 instalado y activo, ejecutar una sola vez desde la raíz del proyecto:
 
@@ -102,7 +102,7 @@ mysql -u root -p -e "source sql/02_crear_usuario.sql"
 mysql -u root -p -e "source sql/03_permisos.sql"
 ```
 
-El segundo script devuelve la contraseña del usuario creado. Reemplazar `DB_ENGINE=sqlite` en `.env` y añadir los datos de conexión:
+El segundo script devuelve la contraseña del usuario creado. Para utilizar MySQL, reemplazar `DB_ENGINE=sqlite` en `.env` y añadir los datos de conexión:
 
 ```dotenv
 DB_ENGINE=mysql
