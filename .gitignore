@@ -9,7 +9,7 @@ __pycache__/
 db.sqlite3
 *.log
 
-.env
+
 
 .DS_Store
 Thumbs.db
