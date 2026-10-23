@@ -2,29 +2,41 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ nombre_proyecto }}</title>
+    <style>{% include "sistema_control.css" %}</style>
 </head>
 <body>
-
-    <h1>{{ nombre_proyecto }}</h1>
-
-    <p>{{ descripcion }}</p>
-
-    <h2>Funcionalidades principales</h2>
-
-    <ul>
-        {% for funcionalidad in funcionalidades %}
-            <li>{{ funcionalidad }}</li>
-        {% endfor %}
-    </ul>
-
-    <p>
-        Cantidad de funcionalidades: {{ cantidad_funcionalidades }}
-    </p>
-
-    <p>
-        Estado: {{ estado }}
-    </p>
-
+    <header class="topbar">
+        <div class="shell">
+            <a class="brand" href="{% url 'inicio' %}">Control de tareas</a>
+            <nav aria-label="Navegación principal">
+                <a href="/api/">API</a>
+                <a href="/admin/">Administración</a>
+            </nav>
+        </div>
+    </header>
+    <main class="shell">
+        <p class="eyebrow">Proyectos · Tareas · Actividades</p>
+        <h1>{{ nombre_proyecto }}</h1>
+        <p class="intro">{{ descripcion }}</p>
+        <div class="actions">
+            <a class="button" href="/api/">Explorar la API</a>
+            <a class="button secondary" href="/api-auth/login/">Iniciar sesión</a>
+        </div>
+        <section aria-labelledby="funcionalidades">
+            <div class="section-heading">
+                <h2 id="funcionalidades">Funcionalidades principales</h2>
+                <span class="count">{{ cantidad_funcionalidades }} funcionalidades</span>
+            </div>
+            <ul class="features">
+                {% for funcionalidad in funcionalidades %}
+                <li><span class="number">0{{ forloop.counter }}</span><span class="feature-title">{{ funcionalidad }}</span></li>
+                {% endfor %}
+            </ul>
+            <p class="note">La API permite consultar, crear, editar y eliminar registros. Inicia sesión para acceder a los datos.</p>
+        </section>
+    </main>
+    <footer><div class="shell">Sistema de Control de Tareas · Proyecto Backend</div></footer>
 </body>
 </html>
